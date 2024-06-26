@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+// Función para intercambiar dos elementos
+void intercambiar(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+// Función para ordenar un array usando el algoritmo de burbuja
+void ordenarBurbuja(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                intercambiar(arr[j], arr[j + 1]);
+            }
+        }
+    }
+}
+
+// Función para imprimir un array
+void imprimirArray(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+// Función principal
+int main() {
+    int n;
+    cout << "Ingrese el tamaño del array: ";
+    cin >> n;
+
+    int arr[n];
+    cout << "Ingrese los elementos del array: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "Array original: ";
+    imprimirArray(arr, n);
+
+    ordenarBurbuja(arr, n);
+
+    cout << "Array ordenado: ";
+    imprimirArray(arr, n);
+
+    return 0;
+}
+
